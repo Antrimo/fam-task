@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import '../widgets/card_list_widget.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -15,16 +16,7 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
       ),
-      body: Container(
-        alignment: Alignment.center,
-        decoration: const BoxDecoration(
-          color: Colors.grey,
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(12),
-            topRight: Radius.circular(12),
-          ),
-        ),
-      ),
+      body: const CardListWidget(),
     );
   }
 }
