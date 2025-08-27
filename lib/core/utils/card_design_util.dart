@@ -1,8 +1,8 @@
-import 'package:fam/features/contextual_cards/presentation/widgets/h1_card_widget.dart';
-import 'package:fam/features/contextual_cards/presentation/widgets/h3_card_widget.dart';
-import 'package:fam/features/contextual_cards/presentation/widgets/h5_card_widget.dart';
-import 'package:fam/features/contextual_cards/presentation/widgets/h6_card_widget.dart';
-import 'package:fam/features/contextual_cards/presentation/widgets/h9_card_widget.dart';
+import 'package:fam/features/contextual_cards/presentation/widgets/cards/h1_card_widget.dart';
+import 'package:fam/features/contextual_cards/presentation/widgets/cards/h5_card_widget.dart';
+import 'package:fam/features/contextual_cards/presentation/widgets/cards/h6_card_widget.dart';
+import 'package:fam/features/contextual_cards/presentation/widgets/cards/h9_card_widget.dart';
+import 'package:fam/features/contextual_cards/presentation/widgets/h3_stack.dart';
 import 'package:flutter/material.dart';
 import 'package:fam/features/contextual_cards/data/models/hc_group.dart';
 
@@ -18,7 +18,7 @@ class CardFactory {
       case "HC6":
         return Hc6CardWidget(hcGroup: group);
       case "HC3":
-        return Hc3CardWidget(hcGroup: group);
+        return H3Stack(hcGroup: group);
       default:
         return const SizedBox();
     }
