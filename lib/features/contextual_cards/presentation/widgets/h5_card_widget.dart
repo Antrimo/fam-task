@@ -10,23 +10,26 @@ class Hc5CardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final card = hcGroup.cards.isNotEmpty ? hcGroup.cards.first : null;
-    return Container(
-      height: ((hcGroup.height ?? 129)).toDouble(),
-      width: double.infinity,
-      decoration: BoxDecoration(
-        color: card!.bgColor != null
-            ? ColorUtil.changeHex(card.bgColor)
-            : Colors.white,
-        borderRadius: BorderRadius.circular(12),
-        image: card.bgImage?.imageUrl != null
-            ? DecorationImage(
-                image: NetworkImage(card.bgImage!.imageUrl),
-                fit: BoxFit.cover,
-              )
-            : null,
-      ),
-      child: Center(
-        child: Text(card.title ?? "No title"),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+      child: Container(
+        height: ((hcGroup.height ?? 129)).toDouble(),
+        width: double.infinity,
+        decoration: BoxDecoration(
+          color: card!.bgColor != null
+              ? ColorUtil.changeHex(card.bgColor)
+              : Colors.white,
+          borderRadius: BorderRadius.circular(12),
+          image: card.bgImage?.imageUrl != null
+              ? DecorationImage(
+                  image: NetworkImage(card.bgImage!.imageUrl),
+                  fit: BoxFit.cover,
+                )
+              : null,
+        ),
+        child: Center(
+          child: Text(card.title ?? "No title"),
+        ),
       ),
     );
   }

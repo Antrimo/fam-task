@@ -50,17 +50,13 @@ class _HomeScreenState extends State<HomeScreen> {
                 itemCount: cardList.length,
                 itemBuilder: (context, index) {
                   final section = cardList[index];
-
-                  return Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: Column(
-                      children: [
-                        for (var group in section.hcGroups) ...[
-                          CardFactory.buildGroup(group),
-                          const SizedBox(height: 15),
-                        ]
-                      ],
-                    ),
+                  return Column(
+                    children: section.hcGroups.map((group) {
+                      return Padding(
+                        padding: const EdgeInsets.only(bottom: 15.0),
+                        child: CardFactory.buildGroup(group),
+                      );
+                    }).toList(),
                   );
                 },
               );
