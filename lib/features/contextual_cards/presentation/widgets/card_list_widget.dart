@@ -1,3 +1,5 @@
+import 'package:fam/core/storage/card_storage.dart';
+import 'package:fam/features/contextual_cards/presentation/widgets/cards/hc3/h3_card_back.dart';
 import 'package:flutter/material.dart';
 import '../../data/models/contextual_card_model.dart';
 import '../../data/services/api_service.dart';
@@ -17,9 +19,15 @@ class _CardListWidgetState extends State<CardListWidget> {
   void initState() {
     super.initState();
     cards = ApiService().fetchContextualCards();
+    loadDismissState();
   }
 
-  Future<void> _refreshCards() async {
+  Future<void> loadDismissState() async {
+    final savedDismiss = await CardStorage.loadDismissState();
+    isDismissedNotifier.value = savedDismiss;
+  }
+
+  Future<void> refreshCards() async {
     setState(() {
       cards = ApiService().fetchContextualCards();
     });
@@ -48,21 +56,31 @@ class _CardListWidgetState extends State<CardListWidget> {
           } else {
             final cardList = snapshot.data!;
             return RefreshIndicator(
-              onRefresh: _refreshCards,
-              child: ListView.builder(
-                itemCount: cardList.length,
-                itemBuilder: (context, index) {
-                  final section = cardList[index];
-                  return Column(
-                    children: section.hcGroups.map((group) {
-                      return Padding(
-                        padding: const EdgeInsets.only(bottom: 15.0),
-                        child: CardFactory.buildGroup(group),
-                      );
-                    }).toList(),
-                  );
-                },
-              ),
+              onRefresh: refreshCards,
+              child: ValueListenableBuilder<bool>(
+                  valueListenable: isRemindNotifier,
+                  builder: (context, isRemind, child) {
+                    return ValueListenableBuilder<bool>(
+                        valueListenable: isDismissedNotifier,
+                        builder: (context, isDismiss, child) {
+                          return ListView.builder(
+                            itemCount: cardList.length,
+                            itemBuilder: (context, index) {
+                              final section = cardList[index];
+                              return Column(
+                                children: section.hcGroups.map((group) {
+                                  return Padding(
+                                    padding:
+                                        const EdgeInsets.only(bottom: 15.0),
+                                    child: CardFactory.buildGroup(
+                                        group, isRemind, isDismiss),
+                                  );
+                                }).toList(),
+                              );
+                            },
+                          );
+                        });
+                  }),
             );
           }
         },
