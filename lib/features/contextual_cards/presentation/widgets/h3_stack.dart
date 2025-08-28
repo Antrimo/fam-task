@@ -1,6 +1,6 @@
 import 'package:fam/features/contextual_cards/data/models/hc_group.dart';
-import 'package:fam/features/contextual_cards/presentation/widgets/cards/h3_card_longpress.dart';
-import 'package:fam/features/contextual_cards/presentation/widgets/cards/h3_card_widget.dart';
+import 'package:fam/features/contextual_cards/presentation/widgets/cards/hc3/h3_card_back_widget.dart';
+import 'package:fam/features/contextual_cards/presentation/widgets/cards/hc3/h3_card_front_widget.dart';
 import 'package:flutter/material.dart';
 
 class H3Stack extends StatefulWidget {
@@ -16,7 +16,7 @@ class _H3StackState extends State<H3Stack> {
 
   @override
   Widget build(BuildContext context) {
-    final double space = (MediaQuery.sizeOf(context).width - 80) / 2;
+    final double space = (MediaQuery.sizeOf(context).width - 120) / 2;
     final double cardHeight = ((widget.hcGroup.height ?? 350) - 250).toDouble();
 
     return Padding(

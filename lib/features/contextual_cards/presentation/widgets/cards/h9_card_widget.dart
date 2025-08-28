@@ -1,3 +1,4 @@
+import 'package:fam/core/utils/gradient_util.dart';
 import 'package:fam/features/contextual_cards/data/models/hc_group.dart';
 import 'package:flutter/material.dart';
 
@@ -20,11 +21,6 @@ class Hc9CardWidget extends StatelessWidget {
           itemBuilder: (context, index) {
             final card = hcGroup.cards[index];
 
-            final gradientColors = card.bgGradient?.colors
-                    .map((c) => Color(int.parse(c.replaceFirst('#', '0xff'))))
-                    .toList() ??
-                [Colors.grey, Colors.black12];
-
             final double aspectRatio = card.bgImage?.aspectRatio ?? 1.0;
             final double cardWidth = groupHeight * aspectRatio;
 
@@ -33,11 +29,7 @@ class Hc9CardWidget extends StatelessWidget {
               width: cardWidth,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12),
-                gradient: LinearGradient(
-                  begin: Alignment.bottomRight,
-                  end: Alignment.topLeft,
-                  colors: gradientColors,
-                ),
+                gradient: GradientUtil.fromHexList(card.bgGradient?.colors),
                 image: card.bgImage?.imageUrl != null
                     ? DecorationImage(
                         image: NetworkImage(card.bgImage!.imageUrl),
