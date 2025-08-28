@@ -1,16 +1,48 @@
-# fam
 
-A new Flutter project.
+# Fam Flutter Assignment
 
-## Getting Started
+- Develop a standalone container, that displays a list of Contextual Cards.
+- Your app should render contextual cards in a list based on the API response.
+- All deeplinks (card, CTAs, Formatted Text entities) should be handled.
+- On long press of Big Display Card (HC3), it should slide to the right and display action buttons as per the design
 
-This project is a starting point for a Flutter application.
+## Apk & Video
+- **APK:** https://drive.google.com/file/d/1HCtCtlXKp3h5DU0VTWPsQmTxMZSvye24/view?usp=sharing
+- **Video:** https://drive.google.com/file/d/1hk-NZgQ8eck64Tj6b4twxZl_LEL5fyca/view?usp=sharing
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Tech Stack
+
+- **Flutter/Dart** for mobile & SDK.
+- **Architeture:** Used Feature-First MVVM Architeture
+- **Packages**: http, shared_preferences, url_launcher, flutter_svg
+
+
+## Instructions
+
+clone the project
+
+```bash
+  git clone https://github.com/Antrimo/fam-task.git
+```
+
+go to the project directory
+
+```bash
+  cd fam-task
+```
+
+install dependencies
+
+```bash
+  flutter pub get
+
+```
+
+run the app
+
+```bash
+  flutter run
+```
+
