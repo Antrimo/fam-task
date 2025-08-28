@@ -1,5 +1,5 @@
 import 'package:fam/core/storage/card_storage.dart';
-import 'package:fam/features/contextual_cards/presentation/widgets/cards/hc3/h3_card_back.dart';
+import 'package:fam/features/contextual_cards/presentation/widgets/cards/hc3/h3_card_back_widget.dart';
 import 'package:flutter/material.dart';
 import '../../data/models/contextual_card_model.dart';
 import '../../data/services/api_service.dart';

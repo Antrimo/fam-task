@@ -1,6 +1,6 @@
 import 'package:fam/features/contextual_cards/data/models/hc_group.dart';
-import 'package:fam/features/contextual_cards/presentation/widgets/cards/hc3/h3_card_back.dart';
-import 'package:fam/features/contextual_cards/presentation/widgets/cards/hc3/h3_card_widget.dart';
+import 'package:fam/features/contextual_cards/presentation/widgets/cards/hc3/h3_card_back_widget.dart';
+import 'package:fam/features/contextual_cards/presentation/widgets/cards/hc3/h3_card_front_widget.dart';
 import 'package:flutter/material.dart';
 
 class H3Stack extends StatefulWidget {
